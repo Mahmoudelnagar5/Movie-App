@@ -15,7 +15,7 @@ class SplashView extends StatelessWidget {
       ),
       nextScreen: const WelcomeView(),
       splashIconSize: 1000,
-      duration: 4690,
+      duration: 4700,
     );
   }
 }
