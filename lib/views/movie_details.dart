@@ -3,8 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/cubits/add_movie_cubit/add_movie_cubit.dart';
-import 'package:movie_app/cubits/add_movie_cubit/add_movie_states.dart';
 import 'package:movie_app/cubits/movie_detail_cubit/movie_detail_cubit.dart';
 import 'package:movie_app/cubits/movie_detail_cubit/movie_detail_states.dart';
 import 'package:movie_app/models/movie.dart';
@@ -115,22 +113,17 @@ class _MovieDetailsState extends State<MovieDetails> {
                                 size: 30,
                               ),
                             ),
-                            BlocBuilder<AddMovieCubit, AddMovieStates>(
-                              builder: (context, state) {
-                                return InkWell(
-                                  onTap: () {
-                                    toggleFavorite(movieDetail);
-                                  },
-                                  child: Icon(
-                                    isFavorite
-                                        ? Icons.favorite
-                                        : Icons.favorite_outline,
-                                    color:
-                                        isFavorite ? Colors.red : Colors.white,
-                                    size: 30,
-                                  ),
-                                );
+                            InkWell(
+                              onTap: () {
+                                toggleFavorite(movieDetail);
                               },
+                              child: Icon(
+                                isFavorite
+                                    ? Icons.favorite
+                                    : Icons.favorite_outline,
+                                color: isFavorite ? Colors.red : Colors.white,
+                                size: 30,
+                              ),
                             ),
                           ],
                         ),
